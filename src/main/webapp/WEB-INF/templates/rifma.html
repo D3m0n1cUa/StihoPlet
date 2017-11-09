@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="fragments/headerIndexFragment :: headerIndexFragment"/>
+	<link rel="stylesheet" href="../../static/css/pagesStyle.css" th:href="@{/static/css/pagesStyle.css}"></link>
+	<title>Rhymester</title>
+</head>
+<body>
+	<div th:replace="fragments/navbarFragment :: navbarFragment"/>
+   
+   	<div th:replace="fragments/slideButtonHomeFragment :: slideButtonHomeFragment"/> 
+   
+	<main role="main" class="container" >
+		<div class="row" th:if="${rifma.getParentRifma() != null}">
+			<div class="col-12">
+				<a th:href="@{/rifma/} + ${rifma.getParentRifma().idRifm}" >
+	    			<img th:src="@{/static/img/icon/previous.png}" />&nbsp;<small>go to the parent rifma</small>
+				</a>
+			</div>
+		</div>
+      	<div class="row">
+      		<div class="col-12">
+      			<div class="row rifma-container">
+		          	<div class="col-12">
+			          	<div class="row" >
+								<div class="col-6 text-left info-text" th:text="'Date: ' + ${#dates.format(rifma.createDate, 'dd-MM-yyyy HH:mm')}">Date</div>
+							    <div class="col-6 text-right info-text">Author: <a href="#" th:href="@{/user/} + ${rifma.getUser().login}" th:text="${rifma.getUser().login}">login</a></div>
+						</div>
+			            <div class="row">
+			            	<div class="col-12 rifma" th:text="${rifma.text}" th:id="'rifm' + ${rifma.idRifm}">Text rifma</div>
+			            	
+			            </div>
+			            
+			            <div class="row">
+			            	<div class="col-2"><button class="button-reply" th:id="'repl' + ${rifma.idRifm}" data-toggle="modal" data-target="#newRifmaModal" ></button></div>
+			            </div>
+		            </div>
+          		</div>
+        	</div>
+        </div>
+        <div class="row" th:if="not ${rifma.getChildRifms().isEmpty()}" >
+        	<div class="col-1"><img th:src="@{/static/img/icon/downArrow.png}" style="width: 64px; height: 64px; " /></div>
+        	<div class="col-11">
+        		<div class="row rifma-container" th:each="childRifma : ${rifma.getChildRifms()}">
+		          	<div class="col-12">
+			          	<div class="row" >
+								<div class="col-6 text-left info-text" th:text="'Date: ' + ${#dates.format(childRifma.createDate, 'dd-MM-yyyy HH:mm')}">Date</div>
+							    <div class="col-6 text-right info-text">Author: <a href="#" th:href="@{/user/} + ${childRifma.getUser().login}" th:text="${childRifma.getUser().login}">login</a></div>
+						</div>
+			            <div class="row">
+			            	<div class="col-12 rifma" th:text="${childRifma.text}" th:id="'rifm' + ${childRifma.idRifm}">Text rifma</div>
+			            	
+			            </div>
+			            
+			            <div class="row">
+			            	<div class="col-2"><button class="button-reply" th:id="'repl' + ${childRifma.idRifm}" data-toggle="modal" data-target="#newRifmaModal" th:style="'background:url(\'' + @{/static/img/icon/reply.png} + '\') ;'"></button></div>
+			            </div>
+		            </div>
+          		</div>
+        	</div>
+        </div>
+   
+         
+    </main><!-- /.container -->
+
+ 	<!-- Modal -->
+  	<div th:replace="fragments/modalAddRifmaWinFragment :: modalAddRifmaWinFragment" />
+    
+    <div th:replace="fragments/footerIndexFragment :: footerIndexFragment"/>
+    
+     <script type="text/javascript" th:inline="javascript">
+		/*<![CDATA[*/
+	     $(function(){
+	    	$(".rifma").click(function() {
+	    		var id = event.target.id.substring(4);
+	    		window.location.href = "../rifma/" + id;
+	    	});
+	    	
+	    	$(".button-reply").click(function() {
+	    		var id = event.target.id.substring(4);
+	    		$('#idParentRifma').attr('value', id);
+	    		
+	    		
+	    	});
+	    	
+	    	$('.modal').on('shown.bs.modal', function() {
+	    		  $(this).find('[autofocus]').focus();
+	    		});
+	     });
+  
+		/*]]>*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+.btn.focus .btn:focus {
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(170, 173, 174, 0.25);
+}
+
+.mainButtonStyle { 
+  color: #868e96; 
+  background-color: #FFFFFF; 
+  border-color: #AAADB5; 
+} 
+ 
+.mainButtonStyle:hover, 
+.mainButtonStyle:focus, 
+.mainButtonStyle:active, 
+.mainButtonStyle.active, 
+.open .dropdown-toggle.mainButtonStyle { 
+  color: #868e96; 
+  background-color: #F2F2F2; 
+  border-color: #AAADB5; 
+} 
+ 
+.mainButtonStyle:active, 
+.mainButtonStyle.active, 
+.open .dropdown-toggle.mainButtonStyle { 
+  background-image: none; 
+} 
+ 
+.mainButtonStyle.disabled, 
+.mainButtonStyle[disabled], 
+fieldset[disabled] .mainButtonStyle, 
+.mainButtonStyle.disabled:hover, 
+.mainButtonStyle[disabled]:hover, 
+fieldset[disabled] .mainButtonStyle:hover, 
+.mainButtonStyle.disabled:focus, 
+.mainButtonStyle[disabled]:focus, 
+fieldset[disabled] .mainButtonStyle:focus, 
+.mainButtonStyle.disabled:active, 
+.mainButtonStyle[disabled]:active, 
+fieldset[disabled] .mainButtonStyle:active, 
+.mainButtonStyle.disabled.active, 
+.mainButtonStyle[disabled].active, 
+fieldset[disabled] .mainButtonStyle.active { 
+  background-color: #FFFFFF; 
+  border-color: #AAADB5; 
+} 
+ 
+.mainButtonStyle .badge { 
+  color: #FFFFFF; 
+  background-color: #8691B6; 
+}

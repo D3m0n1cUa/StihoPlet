@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="fragments/headerIndexFragment :: headerIndexFragment"/>
+    <link rel="stylesheet" href="../../static/css/mainPagesStyle.css" th:href="@{/static/css/mainPagesStyle.css}"></link>
+	<title>Rhymester</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="jumbotron generalcontainer">
+		        <div class="row">
+		        	<div class="col-8">
+		        		<div class="row vertical-align-center">
+		        			<div class="col-5 text-right"><img style="width: 100px; height: 100px;" th:src="@{/static/img/logo/logo.png}" /></div>
+    						<div class="col-7 text-left" style=""><h1>Rhymester</h1></div>
+		        		</div>
+                        <div class="row text-center vertical-align-center" style="height: 80%;">
+                            <div class="col-12">
+                                <span class="about-app">Rhymester is a service where you can rime interactive poems. Write your first line of a poem and anyone can continue after you.</span>
+                            </div>
+                        </div>
+		        	</div>
+		        	<div class="col-4">
+		        		
+		        		<div th:replace="fragments/loginFormFragment :: loginFormFragment"/>
+		        		
+						<hr />
+						<div class="row">
+							<div class="col-12 text-center">
+								<label for="btnSingUp">or if you are a new user</label>
+								<a th:href="@{/registration}" class="btn mainButtonStyle btn-block">Sing up</a>
+							</div>
+						</div>
+		    	</div>
+			</div>
+	    </div>
+	    
+	</div>
+	
+	<div th:replace="fragments/footerIndexFragment :: footerIndexFragment"/>
+	
+</body>
+</html>

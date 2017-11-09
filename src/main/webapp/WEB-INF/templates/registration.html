@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="fragments/headerIndexFragment :: headerIndexFragment"></div>
+    <link rel="stylesheet" href="../../static/css/mainPagesStyle.css" th:href="@{/static/css/mainPagesStyle.css}"></link>
+	<title>Rhymester Registration</title>
+</head>
+<body>
+	<div class="wrapper">
+	    <div class="jumbotron logincontainer">
+	    	 <div class="row">
+		        <div class="col-12">
+		            <a th:href="@{/index}"><img th:src="@{/static/img/icon/previous.png}" />&nbsp;<span>go to the main page</span></a>
+		        </div>
+    		</div>
+	    	<div class="row">
+				<div class="col-12">
+					<div class="row">
+		        		<div class="col-12 text-center"><h1>Create your account</h1></div>
+		        	</div>
+		        	<hr />
+		        	<div class="row">
+		        		<div class="col-12">
+					       	<form action="#" th:action="@{/registration}" th:object="${userForm}" method="post" class="form-horizontal">
+								<div class="form-group text-left">
+									<input type="text" class="form-control" th:field="*{login}" placeholder="Login" autofocus="true"></input>
+									<small th:unless="${#fields.hasErrors('login')}" class="smallHint">Your login must contain at least 3 characters.</small>
+									<ul class="errorList" th:if="${#fields.hasErrors('login')}">
+	  									<li th:each="err : ${#fields.errors('login')}" th:text="${err}" />
+									</ul>
+								</div>
+								<hr />
+								<div class="form-group">
+									<input type="text" class="form-control" th:field="*{firstName}" placeholder="First name"></input>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" th:field="*{lastName}" placeholder="Last name"></input>
+									<small th:unless="${#fields.hasErrors('firstName') OR #fields.hasErrors('lastName')}" class="smallHint">Your first and last name must contain at least 3 characters.</small>
+									<ul class="errorList" th:if="${#fields.hasErrors('firstName')}">
+	  									<li th:each="err : ${#fields.errors('firstName')}" th:text="${err}" />
+									</ul>
+									<ul class="errorList" th:if="${#fields.hasErrors('lastName')}">
+	  									<li th:each="err : ${#fields.errors('lastName')}" th:text="${err}" />
+									</ul>
+								</div>
+								<hr />
+								<div class="form-group">
+									<input type="email" class="form-control" th:field="*{email}" placeholder="Email"></input>
+									<ul class="errorList" th:if="${#fields.hasErrors('email')}">
+	  									<li th:each="err : ${#fields.errors('email')}" th:text="${err}" />
+									</ul>
+								</div>
+								<hr />
+								<div class="form-group">
+									<input type="password" class="form-control" th:field="*{password}" placeholder="Password"></input>
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" th:field="*{confirmPassword}" placeholder="Confirm password"></input>
+									<small th:unless="${#fields.hasErrors('password') OR #fields.hasErrors('confirmPassword')}" class="smallHint">Your password must contain at least 8 characters.</small>
+									<ul class="errorList" th:if="${#fields.hasErrors('password')}">
+	  									<li th:each="err : ${#fields.errors('password')}" th:text="${err}" />
+									</ul>
+									<ul class="errorList" th:if="${#fields.hasErrors('confirmPassword')}">
+	  									<li th:each="err : ${#fields.errors('confirmPassword')}" th:text="${err}" />
+									</ul>
+								</div>
+								<hr />
+								<div class="form-group">
+									<button type="submit" class="btn mainButtonStyle btn-block" id="singup">Sing Up</button>
+								</div>
+							</form>
+						</div>
+					</div>
+		    	</div>
+			</div>
+	    </div>
+	</div>
+	
+	<div th:replace="fragments/footerIndexFragment :: footerIndexFragment"></div>
+	
+</body>
+</html>

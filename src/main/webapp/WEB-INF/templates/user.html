@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="fragments/headerIndexFragment :: headerIndexFragment"/>
+	<link rel="stylesheet" href="../../static/css/pagesStyle.css" th:href="@{/static/css/pagesStyle.css}"></link>
+	<title>Rhymester</title>
+</head>
+<body >
+	<div th:replace="fragments/navbarFragment :: navbarFragment" />
+	
+    
+    <!-- UserInfo -->
+    <div class="container user-info" th:if="not ${principal.getLogin().equals(user.getLogin())}" >
+	    	<div class="row">
+	    		<div class="col-3"><img th:src="@{/static/img/icon/avatar.png}" /></div>
+	    		<div class="col-9">
+		    		<ul class="list">
+		            	<li><span th:text="${user.firstName} + ' ' + ${user.lastName}"></span></li>
+		           		<li><small th:text="'(' + ${user.login} + ')'"></small></li>
+	          		</ul>
+	          </div>
+	    	</div>
+	    	<div class="row">
+	    		<div class="col-6"><span><a href="#" th:href="@{/followers/} + ${user.login}" th:text="'Followers: ' + ${user.countFollowers}"></a></span></div>
+	    		<div class="col-6"><span><a href="#" th:href="@{/following/} + ${user.login}" th:text="'Following: ' + ${user.countFollowing}"></a></span></div>
+	    	</div>
+	    	<div class="row" style="margin-top: 5%;" >
+	    			<div class="col-12" th:if="not ${principal.getFollowing().contains(user)}"><form action="#" th:action="@{/follow/} + ${user.login}" method="post"><button type="submit" class="btn btn-block mainButtonStyle" >Follow</button></form></div>
+	    			<div class="col-12" th:if="${principal.getFollowing().contains(user)}"><form action="#" th:action="@{/unfollow/} + ${user.login}" method="post"><button type="submit" class="btn btn-block mainButtonStyle" >Unfollow</button></form></div>
+	    	</div>
+    </div>
+    
+    <div th:if="${principal.getLogin().equals(user.getLogin())}">
+    	<button data-toggle="modal" class="side-button add-rifma" data-target="#newRifmaModal" ></button>
+    </div>
+    
+
+    <main role="main" class="container" >
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10">
+        	<div class="row rifma-container" th:each="rifma : ${rifms}">
+	          	<div class="col-12">
+		          	<div class="row" >
+							<div class="col-6 text-left info-text" th:text="'Date: ' + ${#dates.format(rifma.createDate, 'dd-MM-yyyy HH:mm')}">Date</div>
+						    <div class="col-6 text-right info-text">Author: <a href="#" th:href="@{/user/} + ${rifma.getUser().login}" th:text="${rifma.getUser().login}">login</a></div>
+					    </div>
+		            
+		            <div class="row parent-rifma-container" th:if="${rifma.hasParentRifma()}">
+		            	<div class="col-2 text-right">Rifma to:</div>
+		            	<div class="col-8" th:text="${rifma.getParentRifma().text}">Text parent rifma</div>
+		            	<div class="col-2 text-left">From: <a href="#" th:href="@{/user/} + ${rifma.getParentRifma().getUser().login}" th:text="${rifma.getParentRifma().getUser().login}">login</a></div>
+		            </div>
+		            
+		            <div class="row">
+		            	<div class="col-12 rifma" th:text="${rifma.text}" th:id="'rifm' + ${rifma.idRifm}">Text rifma</div>
+		            	
+		            </div>
+		            
+		            <div class="row">
+		            	<div class="col-2"><button class="button-reply" th:id="'repl' + ${rifma.idRifm}" data-toggle="modal" data-target="#newRifmaModal"></button></div>
+		            </div>
+	            </div>
+          	</div>
+        </div>
+      </div>
+
+    </main><!-- /.container -->
+    
+    <!-- Modal -->
+  	<div th:replace="fragments/modalAddRifmaWinFragment :: modalAddRifmaWinFragment" />
+    
+    <div th:replace="fragments/footerIndexFragment :: footerIndexFragment"/>
+    
+</body>
+</html>

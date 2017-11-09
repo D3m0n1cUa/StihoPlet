@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="fragments/headerIndexFragment :: headerIndexFragment"/>
+    <link rel="stylesheet" href="../../static/css/mainPagesStyle.css" th:href="@{/static/css/mainPagesStyle.css}"></link>
+	<title>Rhymester Login</title>
+</head>
+<body >
+
+	<div class="wrapper">
+	    <div class="jumbotron logincontainer">
+	    	<div class="row">
+		        <div class="col-12">
+		            <a th:href="@{/index}"><img th:src="@{/static/img/icon/previous.png}" />&nbsp;<span>go to the main page</span></a>
+		        </div>
+    		</div>
+	    	<div class="row">
+				<div class="col-12">
+		        	<div th:replace="fragments/loginFormFragment :: loginFormFragment"/>
+				</div>
+		    </div>
+		</div>
+	</div>
+	
+	<div th:replace="fragments/footerIndexFragment :: footerIndexFragment"/>
+	
+</body>
+</html>

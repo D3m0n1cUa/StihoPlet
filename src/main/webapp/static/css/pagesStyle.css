@@ -1,0 +1,195 @@
+body {
+	background-image: url("../img/back-fon-profile.png");
+}
+
+.navbar {
+   	background: rgb(252,252,232);
+   	-webkit-box-shadow: 0 2px 10px 2px rgba(0,0,0,0.6);
+ 	box-shadow: 0 2px 10px 2px rgba(0,0,0,0.6);
+ 	margin-bottom: 2%; 
+}
+
+.navbar-brand, navbar-brand:hover {
+	text-decoration: none;
+	color: black;
+	margin-right: 5%;
+}
+
+.link-navbar, link-navbar:hover {
+	text-decoration: none;
+	color: black;
+}
+
+.list {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+.avatar {
+	margin-right: 10px;
+}
+
+.user-info {
+	width: 20%;
+	height: max-content;
+	background: rgb(252,252,232);
+   	-webkit-box-shadow: 0 2px 10px 2px rgba(0,0,0,0.6);
+ 	box-shadow: 0 2px 10px 2px rgba(0,0,0,0.6);
+  	-webkit-border-radius: 10px;
+ 	border-radius: 10px;
+	position: fixed; 
+	margin-left: 2%; 
+	padding: 10px;
+	z-index: 1;
+}
+
+.side-button {
+	display: block;
+	position: fixed;
+	margin-left: 2%;
+	width: 64px;
+	height: 64px;
+	display: block;
+	border: 0px;
+	
+}
+
+.side-button:hover {
+	cursor: pointer;
+}
+
+.side-button:focus {
+	outline:none;
+}
+
+.home-button {
+	background:url("../img/icon/home.png");
+	height: 64px;
+    width: 64px;
+	
+}
+
+.home-button:hover {
+	background:url("../img/icon/homeHover.png");
+	height: 64px;
+    width: 64px;
+}
+
+.rifma-container {
+	background: rgb(255,255,255);
+	-webkit-box-shadow: 0 0 3px 2px rgba(0,0,0,0.6);
+  	box-shadow: 0 0 3px 2px rgba(0,0,0,0.6);
+  	-webkit-border-radius: 10px;
+ 	border-radius: 10px;
+	margin: 2%;
+}
+
+.rifma {
+	border-bottom: 1px;
+	border-bottom-style: solid;
+	padding-top: 1%;
+}
+
+.rifma:hover {
+	cursor: pointer;
+	border-bottom: 1px;
+	border-bottom-style: solid;
+	padding-top: 1%;
+	-webkit-box-shadow: 0 2px 2px -1px rgba(0,0,0,0.5) ;
+  	box-shadow: 0 2px 2px -1px rgba(0,0,0,0.5) ;
+}
+
+.info-text {
+	font-size: x-small;
+	color: grey;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.error {
+	position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.parent-rifma-container {
+	background: rgba(220,220,220,0.4);
+	-webkit-box-shadow: 0 0 3px 2px rgba(0,0,0,0.6);
+  	box-shadow: 0 0 3px 2px rgba(0,0,0,0.6);
+  	-webkit-border-radius: 10px;
+ 	border-radius: 10px;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-top: 1%;
+	font-size: small;
+	color: grey;
+}
+
+a {
+	text-decoration: none;
+	color: grey;
+}
+
+a:hover {
+	text-decoration: none;
+	color: black;
+}
+
+.add-rifma {
+	background:url("../img/icon/addRifma.png");
+}
+
+.add-rifma:hover {
+	background:url("../img/icon/addRifmaHover.png");
+}
+
+.button-reply {
+	background:url("../img/icon/reply.png");
+	display: block;
+    height: 20px;
+    width: 20px;
+    padding: 5px;
+    margin: 5px;
+    border: none;
+}
+
+.button-reply:hover {
+	cursor: pointer;
+	background:url("../img/icon/replyHover.png");
+}
+
+.button-reply:focus {
+	outline:none;
+}
+
+.smallHint {
+	color:#969696;
+}
+
+.form-control:focus {
+	border: 1px solid #b7b7b7;
+  -webkit-box-shadow: 0 0 3px 2px rgba(0,0,0,0.2) ;
+  box-shadow: 0 0 3px 2px rgba(0,0,0,0.2) ;
+  -webkit-transition: all 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  -moz-transition: all 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  -o-transition: all 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+hr { 
+  border: 0; 
+  height: 1px; 
+  background-image: -webkit-linear-gradient(left, #a8a6a6, #444444, #a8a6a6);
+  background-image: -moz-linear-gradient(left, #a8a6a6, #444444, #a8a6a6);
+  background-image: -ms-linear-gradient(left, #a8a6a6, #444444, #a8a6a6);
+  background-image: -o-linear-gradient(left, #a8a6a6, #444444, #a8a6a6); 
+}

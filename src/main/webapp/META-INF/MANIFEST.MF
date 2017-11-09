@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: StihoPlet
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: sergeygalkin
+Implementation-Vendor-Id: com.dichcorp
+Build-Jdk: 1.8.0_152-ea
+Implementation-URL: http://projects.spring.io/spring-boot/StihoPlet/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

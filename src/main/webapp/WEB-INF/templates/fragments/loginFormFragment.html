@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Rhymester Log in</title>
+</head>
+<body>
+	<div th:fragment="loginFormFragment">
+		<div class="row">
+			<div class="col-12 text-center"><h1>Log in</h1></div>
+		</div>
+		<hr />
+		<div class="row">
+			<div class="col-12">
+				<form th:action="@{/appLogin}" method="post">
+					<div class="form-group text-center">
+						<small th:if="${(param.logout != null)}">You have been logged out successfully.</small>
+						<input type="text" class="form-control" name="login" id="login" placeholder="Login" autofocus="true"></input>
+					</div>
+					<div class="form-group text-center">
+						<input type="password" class="form-control" name="password" id="password" placeholder="Password"></input>
+						<small th:if="${(param.error != null)}" style="color: red;">The login and password you entered did not match our records.</small>
+					</div>
+					<div class="form-check">
+						<label class="form-check-label">
+						<input type="checkbox" class="form-check-input" id="rememberme" name="remember-me"></input>
+						Remember me
+						</label>
+					</div>
+					<hr />
+					<div class="row">
+						<div class="form-group col-md-12 text-center">
+							<button type="submit" class="btn mainButtonStyle btn-block" id="login">Log in</button>
+							<label class="form-check-label" for="login">Forgot password?</label>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

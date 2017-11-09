@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="fragments/headerIndexFragment :: headerIndexFragment"/>
+	<link rel="stylesheet" href="../../static/css/pagesStyle.css" th:href="@{/static/css/pagesStyle.css}"></link>
+	<title>Rhymester</title>
+</head>
+<body >
+	<div th:replace="fragments/navbarFragment :: navbarFragment"/>
+	
+	<div th:replace="fragments/slideButtonHomeFragment :: slideButtonHomeFragment"/>
+	
+    <main role="main" class="container" >
+      	<div class="row" style="margin-bottom: 25px;">
+      		<div class="col-lg-2"></div>
+      		<div class="col-lg-6">
+      			<h3 th:text="${title}"></h3>
+      		</div>
+      		<div class="col-lg-4"></div>
+      	</div>
+      	
+      	<div class="row text-center" th:if="${listOfUsers.isEmpty()}">
+      		<div class="col-12">
+      			<h5 style="color: grey;" th:text="${textError}"></h5>
+      		</div>      		
+      	</div>
+      	
+      	<div class="row" th:each="user : ${listOfUsers}">
+      		<div class="col-12">
+      			<div class="row vertical-align">
+      				<div class="col-1"></div>
+		      		<div class="col-2 text-right">
+		      			<img th:src="@{/static/img/icon/avatar.png}" />
+		      		</div>
+		      		<div class="col-6" >
+		      			<ul class="list">
+		      				<li><a href="#" th:href="@{/user/} + ${user.login}" th:text="${user.firstName} + ' ' + ${user.lastName}"></a></li>
+		      				<li><small th:text="'(' + ${user.login} + ')'"></small></li>
+		      				<li><a href="#" th:href="@{/followers/} + ${user.login}"><small th:text="'Followers: ' + ${user.countFollowers}"></small></a>&nbsp;<a href="#" th:href="@{/following/} + ${user.login}"><small th:text="'Following: ' + ${user.countFollowing}"></small></a></li>
+		      			</ul>
+		      		</div>
+		      		<div class="col-2">
+		      			<form th:if="not ${principal.getFollowing().contains(user)} and not ${principal.equals(user)}" action="#" th:action="@{/follow/} + ${user.login}" method="post">
+		      				<button type="submit" class="btn btn-block mainButtonStyle" >Follow</button>
+		      			</form>
+		      			<form th:if="${principal.getFollowing().contains(user)} and not ${principal.equals(user)}" action="#" th:action="@{/unfollow/} + ${user.login}" method="post">
+		      				<button type="submit" class="btn btn-block mainButtonStyle" >Unfollow</button>
+		      			</form>
+		      		</div>
+		      		<div class="col-1"></div>
+      			</div>
+      			<div class="row">
+      				<div class="col-12"><hr /></div>
+      			</div>
+      		</div>      		
+      	</div>
+      	
+      	
+      
+
+    </main><!-- /.container -->
+    
+    <div th:replace="fragments/footerIndexFragment :: footerIndexFragment"/>
+    
+</body>
+</html>
