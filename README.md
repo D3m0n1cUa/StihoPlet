@@ -13,9 +13,10 @@ This app was developed for understanding and practicing the following technologi
 8. Thymeleaf
 9. Rest
 
-IDE: Eclipse Neon
-Web-server: Tomcat 8
+IDE: Eclipse Neon  
+Web-server: Tomcat 8  
 
-The working example is here http://95.85.57.79:8080/Rhymester/ 
-Login: d3m0n1c / Password: 123456
-Or you can create a new user.
+The working example is here http://95.85.57.79:8080/Rhymester/   
+Login: d3m0n1c  
+Password: 123456  
+Or you can create a new user.  
