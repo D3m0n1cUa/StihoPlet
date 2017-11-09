@@ -17,3 +17,5 @@ IDE: Eclipse Neon
 Web-server: Tomcat 8
 
 The working example is here http://95.85.57.79:8080/Rhymester/ 
+Login: d3m0n1c / Password: 123456
+Or you can create a new user.
